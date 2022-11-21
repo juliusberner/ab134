@@ -1,10 +1,23 @@
 """
 Good morning. Have a wonderful Monday on London.
+Are you happy now?
 
 -- KD
 """
+from __future__ import annotations
 
-def _no_grad_trunc_normal_(tensor, mean, std, a, b):
+import math
+
+import torch
+
+
+def _no_grad_trunc_normal_(
+    tensor: torch.Tensor,
+    mean: float | torch.Tensor,
+    std: float | torch.Tensor,
+    a: float | torch.Tensor,
+    b: float | torch.Tensor,
+) -> torch.Tensor:
     # Method based on https://people.sc.fsu.edu/~jburkardt/presentations/truncated_normal.pdf
     def norm_cdf(x):
         # Computes standard normal cumulative distribution function
